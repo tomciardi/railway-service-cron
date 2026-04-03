@@ -3,8 +3,10 @@
 Lightweight Alpine container that starts and stops Railway services on a cron schedule. Uses Railway's GraphQL API with [supercronic](https://github.com/aptible/supercronic) for container-friendly cron execution.
 
 Based on [smolpaw/railway-service-cron](https://github.com/smolpaw/railway-service-cron) (MIT), rewritten with:
-- `deploymentStop` instead of `deploymentRemove` (graceful vs destructive)
-- Crontab generated at runtime (schedule changes don't require a rebuild)
+- Graceful stop/start via `deploymentStop` and `serviceInstanceDeploy`
+- Parameterized GraphQL queries via `jq`
+- HTTP and GraphQL error handling with stderr logging
+- Runtime crontab generation (no rebuild needed for schedule changes)
 - Pinned Alpine version and strict env validation
 
 ## Environment Variables
